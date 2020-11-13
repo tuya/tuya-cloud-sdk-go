@@ -1,7 +1,7 @@
 package device_dn
 
 import (
-	"github.com/TuyaInc/tuya_cloud_sdk_go/api/common"
+	"github.com/tuya/tuya_cloud_sdk_go/api/common"
 
 	"testing"
 )

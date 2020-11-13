@@ -3,7 +3,7 @@ package tylog
 import (
 	"time"
 
-	"github.com/TuyaInc/tuya_cloud_sdk_go/pkg/tyutils"
+	"github.com/tuya/tuya_cloud_sdk_go/pkg/tyutils"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	lumberjack "gopkg.in/natefinch/lumberjack.v2"

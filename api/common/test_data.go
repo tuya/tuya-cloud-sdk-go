@@ -1,11 +1,9 @@
 package common
 
 import (
-	"encoding/json"
-	"io/ioutil"
 	"log"
 
-	"github.com/TuyaInc/tuya_cloud_sdk_go/config"
+	"github.com/tuya/tuya_cloud_sdk_go/config"
 )
 
 type ExampleData struct {
@@ -34,27 +32,12 @@ var Ed = ExampleData{}
 
 func SetTestEnv() {
 	log.Println("start init")
-	err := loadTestData()
-	if err != nil {
-		log.Println("load test data failed", err)
-	} else {
-		log.Println("load test data success")
-	}
-	config.SetEnv(URLCNPre, Ed.TestDataAccessID, Ed.TestDataAccessKey)
-	log.Printf("test env ###### init success,Ed:%v\n", Ed)
-}
 
-func loadTestData() error {
-	bs, err := ioutil.ReadFile("../../config/test_data.conf")
-	if err != nil {
-		return err
+	config.SetEnv(URLCN, Ed.TestDataAccessID, Ed.TestDataAccessKey)
+	if config.HOST == "" || config.AccessID == "" || config.AccessKey == "" {
+		log.Println("please set host/accessID/accessKey before run test")
+		log.Printf("SetTestEnv failed")
+		return
 	}
-	if len(bs) > 0 {
-		err := json.Unmarshal(bs, &Ed)
-		if err != nil {
-			return err
-		}
-	}
-	log.Println("test data:", string(bs))
-	return nil
+	log.Printf("test env ###### init success,Ed:%v\n", Ed)
 }
