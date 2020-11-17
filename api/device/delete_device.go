@@ -3,7 +3,7 @@ package device
 import (
 	"fmt"
 
-	"github.com/TuyaInc/tuya_cloud_sdk_go/api/common"
+	"github.com/tuya/tuya-cloud-sdk-go/api/common"
 )
 
 type DeleteDeviceReq struct {
@@ -34,4 +34,34 @@ type DeleteDeviceResponse struct {
 	// error info
 	Code int    `json:"code"`
 	Msg  string `json:"msg"`
+}
+
+type DeleteDeviceResponseV2 struct {
+	Result bool `json:"result"`
+	commonResult
+}
+
+type commonResult struct {
+	Success bool  `json:"success"`
+	T       int64 `json:"t"`
+
+	// error info
+	Code int    `json:"code"`
+	Msg  string `json:"msg"`
+}
+
+type CommonResult interface {
+	GetSuccess() bool
+	GetCode() int
+	GetMsg() string
+}
+
+func (c commonResult) GetSuccess() bool {
+	return c.Success
+}
+func (c commonResult) GetCode() int {
+	return c.Code
+}
+func (c commonResult) GetMsg() string {
+	return c.Msg
 }

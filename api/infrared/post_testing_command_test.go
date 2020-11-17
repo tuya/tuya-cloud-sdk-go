@@ -3,7 +3,7 @@ package infrared
 import (
 	"testing"
 
-	"github.com/TuyaInc/tuya_cloud_sdk_go/api/common"
+	"github.com/tuya/tuya-cloud-sdk-go/api/common"
 )
 
 func TestPostTestingCommand(t *testing.T) {

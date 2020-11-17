@@ -1,7 +1,7 @@
 package user
 
 import "fmt"
-import "github.com/TuyaInc/tuya_cloud_sdk_go/api/common"
+import "github.com/tuya/tuya-cloud-sdk-go/api/common"
 
 type GetUserListReq struct {
 	Schema   string // The schema is the channel identifier of the APP application.
