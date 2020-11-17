@@ -2,7 +2,7 @@ package device_dn
 
 import "fmt"
 
-import "github.com/tuya/tuya_cloud_sdk_go/api/common"
+import "github.com/tuya/tuya-cloud-sdk-go/api/common"
 
 type GetDevicesByTokenReq struct {
 	PairToken string

@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/tuya/tuya_cloud_sdk_go/pkg/tylog"
+	"github.com/tuya/tuya-cloud-sdk-go/pkg/tylog"
 )
 
 var HOST string

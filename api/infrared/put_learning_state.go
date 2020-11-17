@@ -3,7 +3,7 @@ package infrared
 import (
 	"fmt"
 
-	"github.com/tuya/tuya_cloud_sdk_go/api/common"
+	"github.com/tuya/tuya-cloud-sdk-go/api/common"
 )
 
 type PutLearningStateReq struct {

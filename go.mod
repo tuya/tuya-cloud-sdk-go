@@ -1,4 +1,4 @@
-module github.com/tuya/tuya_cloud_sdk_go
+module github.com/tuya/tuya-cloud-sdk-go
 
 go 1.12
 

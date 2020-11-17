@@ -1,7 +1,7 @@
 package device_dn
 
 import "encoding/json"
-import "github.com/tuya/tuya_cloud_sdk_go/api/common"
+import "github.com/tuya/tuya-cloud-sdk-go/api/common"
 
 type PostDeviceTokenReq struct {
 	UID        string `json:"uid"`            // 用户唯一标识	是
