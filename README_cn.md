@@ -1,35 +1,31 @@
-# Tuya Cloud API SDK for Golang
+# 涂鸦云云对接API SDK golang版本
 
 [English](README.md) | [中文版](README_cn.md)
 
-## Introduction
+## 使用前需要做
 
-Tuya Cloud API SDK for Golang
+1. 确定`serverHOST、AccessID、AccessKey`这些值
 
-## Get Started
+2. 在你运行本sdk前，显式初始化一次：
 
-Please make sure you have the values of `serverHOST`, `AccessID` and `AccessKey`.
+   ```
+   config.SetEnv(common.URLCN, "AccessID", "AccessKey")
+   ```
 
-Before running this sdk, please initialize it using the following method :
+## Example
 
-```
-config.SetEnv(common.URLCN, "AccessID", "AccessKey")
-```
+以获取设备信息接口为例，直接调用device.GetDevice()即可
 
-**Example**
-
-If you want to fetch the device info, you can invoke `device.GetDevice()`:
-
-```
-deviceID := "xxx"
-got, err := device.GetDevice(deviceID)
-if err!=nil{
-    xxx
-}
-// process got
+```golang
+    deviceID := "xxx"
+    got, err := device.GetDevice(deviceID)
+    if err!=nil{
+        xxx
+    }
+    // process got
 ```
 
-## Supported API
+## 目前支持的API
 
 |  Method                   | API                                               | 描述  |
 |  ----                     | ----                                              | ----  |
@@ -52,7 +48,8 @@ if err!=nil{
 | device.dn.GetDevicesByToken | POST  /v1.0/devices/tokens/{{pair_token}}         | [根据token获取设备列表](https://docs.tuya.com/docDetail?code=K8uuxemz174o3) |
 
 
-## FAQ
+
+## 常见问题
 
 ### 关于refreshToken接口
 
@@ -100,10 +97,9 @@ pair_token是指app下的某个用户的配网token，可以从v1.0/devices/toke
 2. 提个issue，我们会及时更新 ^_^
 
 
-## Support
+## 技术支持
 
-You can get support from Tuya with the following methods:
+你可以通过以下方式获得Tua开发者技术支持：
 
-- Tuya Smart Help Center: [https://support.tuya.com/en/help](https://support.tuya.com/en/help)
-- Technical Support Council: [https://iot.tuya.com/council](https://iot.tuya.com/council)
-
+- 涂鸦帮助中心: [https://support.tuya.com/zh/help](https://support.tuya.com/zh/help)
+- 涂鸦技术工单平台: [https://iot.tuya.com/council](https://iot.tuya.com/council)
