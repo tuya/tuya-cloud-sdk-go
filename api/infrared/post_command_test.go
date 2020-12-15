@@ -10,7 +10,7 @@ func TestPostCommand(t *testing.T) {
 	deviceID := common.Ed.TestDataDeviceID
 	type args struct {
 		InfraredID string
-		RemoteID   int
+		RemoteID   string
 		Key        string
 	}
 	tests := []struct {
@@ -21,7 +21,7 @@ func TestPostCommand(t *testing.T) {
 	}{
 		{
 			name: "1",
-			args: args{InfraredID: deviceID, RemoteID: 5, Key: "power"},
+			args: args{InfraredID: deviceID, RemoteID: "5", Key: "power"},
 		},
 	}
 	for _, tt := range tests {

@@ -14,13 +14,13 @@ type ExampleData struct {
 	TestDataDeviceID   string
 	TestDataTimeZoneID string
 
-	TestDataThirdCloudDeviceId string
+	TestDataThirdCloudDeviceID string
 
 	TestDataCountryCode    string
 	TestDataAppSchema      string
 	TestDataTuyaUsername   string
-	TestDataTuyaProductId  string
-	TestDataParentDeviceId string
+	TestDataTuyaProductID  string
+	TestDataParentDeviceID string
 
 	TestDataPassword string
 

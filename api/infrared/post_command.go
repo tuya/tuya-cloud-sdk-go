@@ -9,7 +9,7 @@ import (
 
 type PostCommandReq struct {
 	InfraredID string
-	RemoteID   int
+	RemoteID   string
 	Key        string `json:"key"`
 }
 
@@ -27,7 +27,7 @@ func (t *PostCommandReq) Body() []byte {
 }
 
 // PostCommand sends command to infrared controlled device
-func PostCommand(infraredID string, remoteId int, key string) (*PostCommandResponse, error) {
+func PostCommand(infraredID string, remoteId string, key string) (*PostCommandResponse, error) {
 	a := &PostCommandReq{
 		InfraredID: infraredID,
 		RemoteID:   remoteId,
