@@ -12,18 +12,18 @@ func init() {
 }
 
 var (
-	ThirdCloudDeviceId = common.Ed.TestDataThirdCloudDeviceId
+	ThirdCloudDeviceId = common.Ed.TestDataThirdCloudDeviceID
 	CountryCode        = common.Ed.TestDataCountryCode
 	AppSchema          = common.Ed.TestDataAppSchema
 	TuyaUsername       = common.Ed.TestDataTuyaUsername
-	TuyaProductId      = common.Ed.TestDataTuyaProductId
-	ParentDeviceId     = common.Ed.TestDataParentDeviceId
+	TuyaProductId      = common.Ed.TestDataTuyaProductID
+	ParentDeviceId     = common.Ed.TestDataParentDeviceID
 )
 
 func TestPostDevicesBind(t *testing.T) {
-	resp, err := PostDevicesBind(common.Ed.TestDataThirdCloudDeviceId, common.Ed.TestDataCountryCode,
+	resp, err := PostDevicesBind(common.Ed.TestDataThirdCloudDeviceID, common.Ed.TestDataCountryCode,
 		common.Ed.TestDataAppSchema, common.Ed.TestDataTuyaUsername,
-		common.Ed.TestDataTuyaProductId, common.Ed.TestDataParentDeviceId,
+		common.Ed.TestDataTuyaProductID, common.Ed.TestDataParentDeviceID,
 	)
 	if err != nil {
 		t.Errorf("PostDevicesBind req has err:%v,resp:%v \n", err, resp)

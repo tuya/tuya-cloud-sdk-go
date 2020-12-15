@@ -29,7 +29,7 @@ func GetRemotes(infraredID string) (*GetRemotesResponse, error) {
 type GetRemotesResponse struct {
 	Success bool  `json:"success"`
 	T       int64 `json:"t"`
-	Result  struct {
+	Result  []struct {
 		CategoryID   string `json:"category_id"`
 		BrandID      string `json:"brand_id"`
 		BrandName    string `json:"brand_name"`
