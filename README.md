@@ -4,13 +4,13 @@
 
 ## Introduction
 
-Tuya Cloud API SDK for Golang
+Tuya Cloud API SDK for Golang.
 
 ## Get Started
 
-Please make sure you have the values of `serverHOST`, `AccessID` and `AccessKey`.
+Make sure you have `serverHOST`, `AccessID` and `AccessKey`.
 
-Before running this sdk, please initialize it using the following method :
+Before running this SDK, you need to initialize it with the following method:
 
 ```
 config.SetEnv(common.URLCN, "AccessID", "AccessKey")
@@ -18,7 +18,7 @@ config.SetEnv(common.URLCN, "AccessID", "AccessKey")
 
 **Example**
 
-If you want to fetch the device info, you can invoke `device.GetDevice()`:
+If you want to fetch the device info, you can call `device.GetDevice()`:
 
 ```
 deviceID := "xxx"
@@ -31,73 +31,68 @@ if err!=nil{
 
 ## Supported API
 
-|  Method                   | API                                               | 描述  |
+|  Method                   | API                                               | Description  |
 |  ----                     | ----                                              | ----  |
-| token.GetTokenAPI         | GET  /v1.0/token?grant_type=1                     | [简单模式获取access_token](https://docs.tuya.com/docDetail?code=K8uuxenajovgv) |
-| token.RefreshToken     | GET  /v1.0/token/{{easy_refresh_token}}           | [刷新token](https://docs.tuya.com/docDetail?code=K8uuxfcvdsqwm) |
-|  |  |  |
-| device.GetDevice          | GET  /v1.0/devices/{{device_id}}                  | [获取设备信息](https://docs.tuya.com/docDetail?code=K8uuxen89a81x) |
-| device.GetDeviceFunctions | GET  /v1.0/devices/{deviceId}/functions | [获取设备支持的function列表](https://docs.tuya.com/docDetail?code=K8uuxemwya69p) |
-| device.GetDeviceFunctionByCategory | GET  /v1.0/functions/{category} | [根据category获取function列表](https://docs.tuya.com/docDetail?code=K8uuxemym7qkt) |
-| device.GetDeviceStatus | GET  /v1.0/devices/{{device_id}}/status           | [获取设备功能点的信息](https://docs.tuya.com/docDetail?code=K8uuxen4ux749) |
-| device.GetDeviceList | GET  /v1.0/devices/status?device_ids={{device_id}} | [批量获取设备状态](https://docs.tuya.com/docDetail?code=K8uuxenar6kgc) |
-| device.PostDeviceCommand | POST  /v1.0/devices/{{device_id}}/commands        | [设备指令下发](https://docs.tuya.com/docDetail?code=K8uuxfcxbpwlo) |
-| device.DeleteDevice | DELETE  /v1.0/devices/{device_id} | [移除设备](https://docs.tuya.com/docDetail?code=K8uuxemvwtp3z) |
-|  |  |  |
-| user.PostUserRegister   | POST  /v1.0/apps/{schema}/user | [云端用户注册](https://docs.tuya.com/docDetail?code=K8uuxfcuhc2ei) |
-| user.GetUserList   | GET  /v1.0/apps/{schema}/users?page_no=&page_size= | [获取用户列表](https://docs.tuya.com/docDetail?code=K8uuxemwe9kwb) |
-| user.GetDeviceListByUid | GET /v1.0/users/{uid}/devices | [根据用户id获取设备列表](https://docs.tuya.com/docDetail?code=K8uuxfcuesrh7) |
-|  |  |  |
-| device.dn.PostDeviceToken | POST /v1.0/devices/token       | [生成设备配网token](https://docs.tuya.com/docDetail?code=K8uuxfcujsk6n) |
-| device.dn.GetDevicesByToken | POST  /v1.0/devices/tokens/{{pair_token}}         | [根据token获取设备列表](https://docs.tuya.com/docDetail?code=K8uuxemz174o3) |
+| token.GetTokenAPI         | GET  /v1.0/token?grant_type=1                     | [Get access_token with simple method](https://docs.tuya.com/docDetail?code=K8uuxenajovgv) |
+| token.RefreshToken     | GET  /v1.0/token/{{easy_refresh_token}}           | [Refresh token](https://docs.tuya.com/docDetail?code=K8uuxfcvdsqwm) |
+| device.GetDevice          | GET  /v1.0/devices/{{device_id}}                  | [Get device details](https://docs.tuya.com/docDetail?code=K8uuxen89a81x) |
+| device.GetDeviceFunctions | GET  /v1.0/devices/{deviceId}/functions | [Get function list](https://docs.tuya.com/docDetail?code=K8uuxemwya69p) |
+| device.GetDeviceFunctionByCategory | GET  /v1.0/functions/{category} | [Get function list by category](https://docs.tuya.com/docDetail?code=K8uuxemym7qkt) |
+| device.GetDeviceStatus | GET  /v1.0/devices/{{device_id}}/status           | [Get device data point details](https://docs.tuya.com/docDetail?code=K8uuxen4ux749) |
+| device.GetDeviceList | GET  /v1.0/devices/status?device_ids={{device_id}} | [Get device status in batch](https://docs.tuya.com/docDetail?code=K8uuxenar6kgc) |
+| device.PostDeviceCommand | POST  /v1.0/devices/{{device_id}}/commands        | [Send device command](https://docs.tuya.com/docDetail?code=K8uuxfcxbpwlo) |
+| device.DeleteDevice | DELETE  /v1.0/devices/{device_id} | [Remove device](https://docs.tuya.com/docDetail?code=K8uuxemvwtp3z) |
+| user.PostUserRegister   | POST  /v1.0/apps/{schema}/user | [User registration](https://docs.tuya.com/docDetail?code=K8uuxfcuhc2ei) |
+| user.GetUserList   | GET  /v1.0/apps/{schema}/users?page_no=&page_size= | [Get user list](https://docs.tuya.com/docDetail?code=K8uuxemwe9kwb) |
+| user.GetDeviceListByUid | GET /v1.0/users/{uid}/devices | [Get deice list by user ID   ](https://docs.tuya.com/docDetail?code=K8uuxfcuesrh7) |
+| device.dn.PostDeviceToken | POST /v1.0/devices/token       | [Generate pairing token](https://docs.tuya.com/docDetail?code=K8uuxfcujsk6n) |
+| device.dn.GetDevicesByToken | POST  /v1.0/devices/tokens/{{pair_token}}         | [Get device list by token](https://docs.tuya.com/docDetail?code=K8uuxemz174o3) |
 
 
 ## FAQ
 
-### 关于refreshToken接口
+### About refreshToken interface
 
-注意： refreshToken接口会返回一个新的access_token，即使旧的token还未过期。
+Note: The `refreshToken` interface will return a new `access_token`, even if the old token has not expired.
 
-这个逻辑在GetToken方法中已经做了，用户一般不需要调用refresh接口。
+This logic is already implemented in the `GetToken` method, and generally you do not need to call the `refreshToken` interface.
 
-### 每次调用api之前，是否需要获取token或者刷新token？
+### Do I need to get the token or refresh the token before calling the API?
 
-不需要，这层逻辑已经在api方法中实现了。token信息会缓存到内存中。
+No, this logic has been implemented in the API method. The token information will be cached in memory.
 
-### 调用某个接口时，如果token已经过期，需要手动调用refresh-token接口？
+### When calling an interface, if the token has expired, do I need to manually call the refresh-token interface?
 
-不需要，在GetToken()方法实现中，会检查token是否过期。如果过期会去重新拉取。
+No, in the `GetToken()` method, it will check whether the token has expired. If token expires, it will be pulled again.
 
-### 如果你的token会在多个节点中去刷新，那么你需要自己实现common.TokenLocalManage interface
-涂鸦的云token，只保证面向的用户级别刷新不会有问题，但是一个用户的token在多个节点并发刷新，就会导致一个节点是成功的，
-其他都是失败；
-因为 `获取token`接口会返回一个access_token、refresh_token，但是 `刷新token`接口 会把当前的refresh_token 刷掉，会产生一个新的，旧的失效；
+### If a token is refreshed in multiple nodes, then you need to implement `common.TokenLocalManage` interface 
 
-### api方法的异常信息和error需要如何处理？
+Tuya's cloud token only guarantees that refreshing problems will not occur on the end-users side, but if the token of one user refreshes concurrently on multiple nodes, it will cause one node to be successful while other nodes fail. `GetToken` interface will return an `access_token` and `refresh_token`, but `refresh_token` interface will erase the current `refresh_token` and generate a new token, so the old token will be invalid.
 
-接口如果返回error，一般可以为url错误或者json解析出错，可联系涂鸦相关人员帮忙修改
+### How to deal with the exception and error of the API method?
 
-如果error为空，但是response的success字段为false，开发者可以根据Msg字段的详细错误信息进行排查
+If the interface returns an error, it can generally be a URL error or a JSON parsing error, you can contact Tuya technical staff for help.
 
-### 获取设备列表接口，如果多个deviceID，需要怎么拼接？
+If error is empty, but the success field of the response is false, you can troubleshoot according to the detailed error information in the `Msg` field.
 
-多个deviceID，以英文逗号分割拼接
+### Get the device list interface, if there are multiple deviceIDs, how to splice it?
 
-### 获取用户列表接口中，schema指的是什么？
+Multiple deviceIDs, separated by commas.
 
-创建APP-SDK后，详情页面的渠道标识符就是schema
+### In the interface for obtaining user list, what does schema refer to?
 
-### v1.0/devices/tokens/{{pair_token}}接口，pair_token是指什么？如何获取？
+After creating the App SDK, the channel ID on the detail page is the schema.
 
-pair_token是指app下的某个用户的配网token，可以从v1.0/devices/token获取。
+### `v1.0/devices/tokens/{{pair_token}}` interface, what does `pair_token` mean? How to get it?
 
-### 如果SDK中的API没有及时更新，如何自己实现一个API？
+`Pair_token` refers to the network pairing token of an app user, which can be obtained from `v1.0/devices/token`.
 
-有两种方法：
+### If the API in the SDK is not updated in time, how to implement an API?
 
-1. 可以通过实现common.APIRequest这个interface，如果是POST请求需要把RequestBody接口也实现了。
-然后调用DoAPIRequest()即可。具体可以参考UserDevicesAPI实现
-2. 提个issue，我们会及时更新 ^_^
+There are two ways:
+
+1. You can implement the `common.APIRequest` interface. If it is a POST request, you need to also implement the `RequestBody` interface. Then call `DoAPIRequest()`. For more information, see `UserDevicesAPI`.
+2. Submit an issue, and we will handle the update.
 
 
 ## Support
@@ -105,5 +100,5 @@ pair_token是指app下的某个用户的配网token，可以从v1.0/devices/toke
 You can get support from Tuya with the following methods:
 
 - Tuya Smart Help Center: [https://support.tuya.com/en/help](https://support.tuya.com/en/help)
-- Technical Support Council: [https://iot.tuya.com/council](https://iot.tuya.com/council)
+- Technical Support: [https://iot.tuya.com/council](https://iot.tuya.com/council)
 
