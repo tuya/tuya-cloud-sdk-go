@@ -28,7 +28,7 @@ func (t *PostAddRemoteReq) Method() string {
 }
 
 func (t *PostAddRemoteReq) API() string {
-	return fmt.Sprintf("/v1.0/infrareds/%s/testing/command", t.InfraredID)
+	return fmt.Sprintf("/v1.0/infrareds/%s/add-remote", t.InfraredID)
 }
 
 func (t *PostAddRemoteReq) Body() []byte {
