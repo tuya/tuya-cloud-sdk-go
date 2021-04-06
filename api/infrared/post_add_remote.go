@@ -3,14 +3,13 @@ package infrared
 import (
 	"encoding/json"
 	"fmt"
-	"strconv"
 
 	"github.com/tuya/tuya-cloud-sdk-go/api/common"
 )
 
 type PostAddRemoteReq struct {
 	InfraredID  string
-	CategoryId  string `json:"category_id"`
+	CategoryID  string `json:"category_id"`
 	BrandID     string `json:"brand_id"`
 	BrandName   string `json:"brand_name"`
 	RemoteIndex string `json:"remote_index"`
@@ -39,10 +38,10 @@ func (t *PostAddRemoteReq) Body() []byte {
 // PostAddRemote sends test command to infrared controlled device
 func PostAddRemote(
 	infraredID string,
-	categoryId int,
-	brandID int,
+	categoryID string,
+	brandID string,
 	brandName string,
-	remoteIndex int,
+	remoteIndex string,
 	remoteName string,
 	operatorID string,
 	operatorName string,
@@ -52,10 +51,10 @@ func PostAddRemote(
 ) (*PostAddRemoteResponse, error) {
 	a := &PostAddRemoteReq{
 		InfraredID:   infraredID,
-		CategoryId:   strconv.Itoa(categoryId),
-		BrandID:      strconv.Itoa(brandID),
+		CategoryID:   categoryID,
+		BrandID:      brandID,
 		BrandName:    brandName,
-		RemoteIndex:  strconv.Itoa(remoteIndex),
+		RemoteIndex:  remoteIndex,
 		RemoteName:   remoteName,
 		OperatorID:   operatorID,
 		OperatorName: operatorName,
