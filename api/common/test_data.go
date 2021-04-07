@@ -14,6 +14,9 @@ type ExampleData struct {
 	TestDataDeviceID   string
 	TestDataTimeZoneID string
 
+	TestDataCategoryID string
+	TestDataBrandID    string
+
 	TestDataThirdCloudDeviceID string
 
 	TestDataCountryCode    string

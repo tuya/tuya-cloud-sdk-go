@@ -10,10 +10,10 @@ func TestPostAddRemote(t *testing.T) {
 	deviceID := common.Ed.TestDataDeviceID
 	type args struct {
 		InfraredID  string
-		CategoryId  int
-		BrandID     int
+		CategoryID  string
+		BrandID     string
 		BrandName   string
-		RemoteIndex int
+		RemoteIndex string
 		RemoteName  string
 	}
 	tests := []struct {
@@ -26,10 +26,10 @@ func TestPostAddRemote(t *testing.T) {
 			name: "1",
 			args: args{
 				InfraredID:  deviceID,
-				CategoryId:  5,
-				BrandID:     37,
+				CategoryID:  "5",
+				BrandID:     "37",
 				BrandName:   "CoolBrand",
-				RemoteIndex: 657,
+				RemoteIndex: "657",
 				RemoteName:  "IR control",
 			},
 		},
@@ -38,7 +38,7 @@ func TestPostAddRemote(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			got, err := PostAddRemote(
 				tt.args.InfraredID,
-				tt.args.CategoryId,
+				tt.args.CategoryID,
 				tt.args.BrandID,
 				tt.args.BrandName,
 				tt.args.RemoteIndex,
