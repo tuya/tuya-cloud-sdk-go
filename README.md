@@ -39,7 +39,7 @@ if err!=nil{
 | device.GetDeviceFunctions | GET /v1.0/devices/{deviceId}/functions | [Get function list](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
 | device.GetDeviceFunctionByCategory | GET /v1.0/functions/{category} | [Get function list by category](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
 | device.GetDeviceStatus | GET /v1.0/devices/{device_id}/status           | [Get device data point details](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
-| device.PostDeviceCommand | POST /v1.0/devices/{device_id}/commands        | [Send device command](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
+| device.PostDeviceCommand | POST /v1.0/devices/{device_id}/commands       | [Send device command](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
 | device.DeleteDevice | DELETE /v1.0/devices/{device_id} | [Remove device](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
 | user.PostUserRegister   | POST /v1.0/apps/{schema}/user | [User registration](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-family-management/user-management) |
 | user.GetDeviceListByUid | GET /v1.0/users/{uid}/devices | [Get deice list by user ID   ](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
