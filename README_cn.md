@@ -39,7 +39,7 @@
 | device.DeleteDevice | DELETE  /v1.0/devices/{device_id} | [移除设备](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
 | user.PostUserRegister   | POST  /v1.0/apps/{schema}/user | [云端用户注册](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-family-management/user-management) |
 | user.GetDeviceListByUid | GET /v1.0/users/{uid}/devices | [根据用户id获取设备列表](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
-| device.dn.GetDevicesByToken | POST  /v1.0/devices/tokens/{pair_token}         | [生成设备配网token](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-devices-management/paring-management) |
+| device.dn.GetDevicesByToken | POST  /v1.0/device/paring/token         | [生成设备配网token](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-devices-management/paring-management) |
 
 ## 常见问题
 

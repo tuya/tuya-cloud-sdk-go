@@ -43,7 +43,7 @@ if err!=nil{
 | device.DeleteDevice | DELETE  /v1.0/devices/{device_id} | [Remove device](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
 | user.PostUserRegister   | POST  /v1.0/apps/{schema}/user | [User registration](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-family-management/user-management) |
 | user.GetDeviceListByUid | GET /v1.0/users/{uid}/devices | [Get deice list by user ID   ](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
-| device.dn.GetDevicesByToken | POST  /v1.0/devices/tokens/{pair_token}         | [Get device list by token](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/paring-management) |
+| device.dn.GetDevicesByToken | POST  /v1.0/device/paring/token         | [Generate pairing token](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/paring-management) |
 
 
 ## FAQ
