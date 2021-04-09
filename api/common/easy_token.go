@@ -1,7 +1,7 @@
 package common
 
 import (
-	"github.com/tuya/tuya-cloud-sdk-go/pkg/tylog"
+	"log"
 )
 
 type GetTokenReq struct {
@@ -19,7 +19,7 @@ func GetTokenAPI() (*GetTokenAPIResponse, error) {
 	getTokenReq := &GetTokenReq{}
 	req, err := NewHTTPRequest(getTokenReq)
 	if err != nil {
-		tylog.SugarLog.Infof("GetTokenAPI failed err:%v,req:%v\n", err, req)
+		log.Printf("GetTokenAPI failed err:%v,req:%v\n", err, req)
 		return nil, err
 	}
 
@@ -30,7 +30,7 @@ func GetTokenAPI() (*GetTokenAPIResponse, error) {
 	resp := &GetTokenAPIResponse{}
 	err = DoRequest(req, resp)
 	if err != nil {
-		tylog.SugarLog.Infof("GetTokenAPI failed err:%v,req:%v,resp:%v\n", err, req, resp)
+		log.Printf("GetTokenAPI failed err:%v,req:%v,resp:%v\n", err, req, resp)
 		return nil, err
 	}
 	SetToken(resp.Result.AccessToken, resp.Result.RefreshToken, resp.Result.ExpireTime)

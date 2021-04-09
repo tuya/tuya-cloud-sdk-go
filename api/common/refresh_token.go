@@ -2,8 +2,7 @@ package common
 
 import (
 	"fmt"
-
-	"github.com/tuya/tuya-cloud-sdk-go/pkg/tylog"
+	"log"
 )
 
 type RefreshTokenReq struct {
@@ -22,7 +21,7 @@ func (t *RefreshTokenReq) API() string {
 func DoRefreshToken() (*RefreshTokenResponse, error) {
 	refreshToken, err := GetRefreshToken()
 	if err != nil || len(refreshToken) == 0 {
-		tylog.SugarLog.Infof("GetRefreshToken failed err:%v\n", err)
+		log.Printf("GetRefreshToken failed err:%v\n", err)
 		return nil, err
 	}
 	refreshTokenReq := &RefreshTokenReq{}
@@ -30,7 +29,7 @@ func DoRefreshToken() (*RefreshTokenResponse, error) {
 
 	req, err := NewHTTPRequest(refreshTokenReq)
 	if err != nil {
-		tylog.SugarLog.Infof("DoRefreshToken failed err:%v,req:%v\n", err, req)
+		log.Printf("DoRefreshToken failed err:%v,req:%v\n", err, req)
 		return nil, err
 	}
 	timestamp := GetTimestamp()
@@ -40,7 +39,7 @@ func DoRefreshToken() (*RefreshTokenResponse, error) {
 	resp := &RefreshTokenResponse{}
 	err = DoRequest(req, resp)
 	if err != nil {
-		tylog.SugarLog.Infof("DoRefreshToken failed err:%v,req:%v,resp:%v\n", err, req, resp)
+		log.Printf("DoRefreshToken failed err:%v,req:%v,resp:%v\n", err, req, resp)
 		return nil, err
 	}
 

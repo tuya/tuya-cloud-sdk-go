@@ -4,12 +4,11 @@ import (
 	"bytes"
 	"encoding/json"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"strings"
 
 	"github.com/tuya/tuya-cloud-sdk-go/config"
-
-	"github.com/tuya/tuya-cloud-sdk-go/pkg/tylog"
 )
 
 func DoAPIRequest(a APIRequest, resp interface{}) error {
@@ -68,23 +67,23 @@ func AddBodyBizHeader(req *http.Request, token, sign, timestamp string) {
 func DoRequest(req *http.Request, resp interface{}) error {
 	httpResp, err := http.DefaultClient.Do(req)
 	if err != nil {
-		tylog.SugarLog.Errorf("do request failed err:%v,req:%v\n", err, req)
+		log.Printf("do request failed err:%v,req:%v\n", err, req)
 		return err
 	}
 	defer httpResp.Body.Close()
 	bs, err := ioutil.ReadAll(httpResp.Body)
 	if err != nil {
-		tylog.SugarLog.Errorf("do request failed err:%v,req:%v\n", err, req)
+		log.Printf("do request failed err:%v,req:%v\n", err, req)
 		return err
 	}
 
 	// resp := &GetFunctionsResponse{}
 	err = json.Unmarshal(bs, &resp)
 	if err != nil {
-		tylog.SugarLog.Errorf("do request failed err:%v,req:%v,resp:%v\n", err, req, string(bs))
+		log.Printf("do request failed err:%v,req:%v,resp:%v\n", err, req, string(bs))
 		return err
 	}
-	tylog.SugarLog.Infof("req:%v,resp:%+v\n", req, resp)
+	log.Printf("req:%v,resp:%+v\n", req, resp)
 	return nil
 }
 
