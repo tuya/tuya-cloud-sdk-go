@@ -33,17 +33,17 @@ if err!=nil{
 
 |  Method                   | API                                               | Description  |
 |  ----                     | ----                                              | ----  |
-| token.GetTokenAPI         | GET  /v1.0/token?grant_type=1                     | [Get access_token with simple method](https://developer.tuya.com/en/docs/iot/open-api/api-reference/authorization/oauth-management) |
-| token.RefreshToken     | GET  /v1.0/token/{easy_refresh_token}           | [Refresh token](https://developer.tuya.com/en/docs/iot/open-api/api-reference/authorization/oauth-management) |
-| device.GetDevice          | GET  /v1.0/devices/{device_id}                  | [Get device details](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
-| device.GetDeviceFunctions | GET  /v1.0/devices/{deviceId}/functions | [Get function list](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
-| device.GetDeviceFunctionByCategory | GET  /v1.0/functions/{category} | [Get function list by category](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
-| device.GetDeviceStatus | GET  /v1.0/devices/{device_id}/status           | [Get device data point details](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
-| device.PostDeviceCommand | POST  /v1.0/devices/{device_id}/commands        | [Send device command](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
-| device.DeleteDevice | DELETE  /v1.0/devices/{device_id} | [Remove device](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
-| user.PostUserRegister   | POST  /v1.0/apps/{schema}/user | [User registration](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-family-management/user-management) |
+| token.GetTokenAPI         | GET /v1.0/token?grant_type=1                     | [Get access_token with simple method](https://developer.tuya.com/en/docs/iot/open-api/api-reference/authorization/oauth-management) |
+| token.RefreshToken     | GET /v1.0/token/{easy_refresh_token}           | [Refresh token](https://developer.tuya.com/en/docs/iot/open-api/api-reference/authorization/oauth-management) |
+| device.GetDevice          | GET /v1.0/devices/{device_id}                  | [Get device details](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
+| device.GetDeviceFunctions | GET /v1.0/devices/{deviceId}/functions | [Get function list](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
+| device.GetDeviceFunctionByCategory | GET /v1.0/functions/{category} | [Get function list by category](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
+| device.GetDeviceStatus | GET /v1.0/devices/{device_id}/status           | [Get device data point details](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
+| device.PostDeviceCommand | POST /v1.0/devices/{device_id}/commands        | [Send device command](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
+| device.DeleteDevice | DELETE /v1.0/devices/{device_id} | [Remove device](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
+| user.PostUserRegister   | POST /v1.0/apps/{schema}/user | [User registration](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-family-management/user-management) |
 | user.GetDeviceListByUid | GET /v1.0/users/{uid}/devices | [Get deice list by user ID   ](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
-| device.dn.GetDevicesByToken | POST  /v1.0/device/paring/token         | [Generate pairing token](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/paring-management) |
+| device.dn.GetDevicesByToken | POST /v1.0/device/paring/token         | [Generate pairing token](https://developer.tuya.com/en/docs/iot/open-api/api-reference/smart-home-devices-management/paring-management) |
 
 
 ## FAQ
