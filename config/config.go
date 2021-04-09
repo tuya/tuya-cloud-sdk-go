@@ -11,8 +11,8 @@ var AccessKey string
 // SetEnv  you must be init here
 func SetEnv(serverHost, accessID, accessKey string) {
 	// set log
-	SetLog("tysdk", true)
-	tylog.SugarLog.Info("init log success")
+	//SetLog("tysdk", true)
+	//log.Print("init log success")
 
 	// init env
 	HOST = serverHost

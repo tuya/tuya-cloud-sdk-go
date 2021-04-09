@@ -1,10 +1,9 @@
 package common
 
 import (
+	"log"
 	"sync"
 	"time"
-
-	"github.com/tuya/tuya-cloud-sdk-go/pkg/tylog"
 )
 
 type Info struct {
@@ -44,7 +43,7 @@ func GetToken() (string, error) {
 	if t != "" && expire.After(time.Now().Add(30*time.Second)) {
 		return t, nil
 	}
-	tylog.SugarLog.Info("without token, the token will be pulled again")
+	log.Print("without token, the token will be pulled again")
 	if t == "" || LocalToken.RefreshToken == "" {
 		_, err := GetTokenAPI()
 		if err != nil {
