@@ -27,27 +27,19 @@
 
 ## 目前支持的API
 
-|  Method                   | API                                               | 描述  |
+|  Method                   | API                                               | Description  |
 |  ----                     | ----                                              | ----  |
-| token.GetTokenAPI         | GET  /v1.0/token?grant_type=1                     | [简单模式获取access_token](https://docs.tuya.com/docDetail?code=K8uuxenajovgv) |
-| token.RefreshToken     | GET  /v1.0/token/{{easy_refresh_token}}           | [刷新token](https://docs.tuya.com/docDetail?code=K8uuxfcvdsqwm) |
-|  |  |  |
-| device.GetDevice          | GET  /v1.0/devices/{{device_id}}                  | [获取设备信息](https://docs.tuya.com/docDetail?code=K8uuxen89a81x) |
-| device.GetDeviceFunctions | GET  /v1.0/devices/{deviceId}/functions | [获取设备支持的function列表](https://docs.tuya.com/docDetail?code=K8uuxemwya69p) |
-| device.GetDeviceFunctionByCategory | GET  /v1.0/functions/{category} | [根据category获取function列表](https://docs.tuya.com/docDetail?code=K8uuxemym7qkt) |
-| device.GetDeviceStatus | GET  /v1.0/devices/{{device_id}}/status           | [获取设备功能点的信息](https://docs.tuya.com/docDetail?code=K8uuxen4ux749) |
-| device.GetDeviceList | GET  /v1.0/devices/status?device_ids={{device_id}} | [批量获取设备状态](https://docs.tuya.com/docDetail?code=K8uuxenar6kgc) |
-| device.PostDeviceCommand | POST  /v1.0/devices/{{device_id}}/commands        | [设备指令下发](https://docs.tuya.com/docDetail?code=K8uuxfcxbpwlo) |
-| device.DeleteDevice | DELETE  /v1.0/devices/{device_id} | [移除设备](https://docs.tuya.com/docDetail?code=K8uuxemvwtp3z) |
-|  |  |  |
-| user.PostUserRegister   | POST  /v1.0/apps/{schema}/user | [云端用户注册](https://docs.tuya.com/docDetail?code=K8uuxfcuhc2ei) |
-| user.GetUserList   | GET  /v1.0/apps/{schema}/users?page_no=&page_size= | [获取用户列表](https://docs.tuya.com/docDetail?code=K8uuxemwe9kwb) |
-| user.GetDeviceListByUid | GET /v1.0/users/{uid}/devices | [根据用户id获取设备列表](https://docs.tuya.com/docDetail?code=K8uuxfcuesrh7) |
-|  |  |  |
-| device.dn.PostDeviceToken | POST /v1.0/devices/token       | [生成设备配网token](https://docs.tuya.com/docDetail?code=K8uuxfcujsk6n) |
-| device.dn.GetDevicesByToken | POST  /v1.0/devices/tokens/{{pair_token}}         | [根据token获取设备列表](https://docs.tuya.com/docDetail?code=K8uuxemz174o3) |
-
-
+| token.GetTokenAPI         | GET  /v1.0/token?grant_type=1                     | [简单模式获取access_token](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/authorization/oauth-management) |
+| token.RefreshToken     | GET  /v1.0/token/{easy_refresh_token}           | [刷新token](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/authorization/oauth-management) |
+| device.GetDevice          | GET  /v1.0/devices/{device_id}                  | [获取设备信息](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
+| device.GetDeviceFunctions | GET  /v1.0/devices/{deviceId}/functions | [根据category获取function列表](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
+| device.GetDeviceFunctionByCategory | GET  /v1.0/functions/{category} | [根据category获取function列表](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
+| device.GetDeviceStatus | GET  /v1.0/devices/{device_id}/status           | [获取设备功能点的信息](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
+| device.PostDeviceCommand | POST  /v1.0/devices/{device_id}/commands        | [设备指令下发](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-devices-management/device-control) |
+| device.DeleteDevice | DELETE  /v1.0/devices/{device_id} | [移除设备](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
+| user.PostUserRegister   | POST  /v1.0/apps/{schema}/user | [云端用户注册](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-family-management/user-management) |
+| user.GetDeviceListByUid | GET /v1.0/users/{uid}/devices | [根据用户id获取设备列表](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-devices-management/device-management) |
+| device.dn.GetDevicesByToken | POST  /v1.0/device/paring/token         | [生成设备配网token](https://developer.tuya.com/cn/docs/iot/open-api/api-reference/smart-home-devices-management/paring-management) |
 
 ## 常见问题
 
