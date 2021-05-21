@@ -1,10 +1,9 @@
 package common
 
 import (
+	"github.com/tuya/tuya-cloud-sdk-go/pkg/tylog"
 	"sync"
 	"time"
-
-	"github.com/tuya/tuya-cloud-sdk-go/pkg/tylog"
 )
 
 type Info struct {
@@ -40,22 +39,29 @@ func GetToken() (string, error) {
 	t := LocalToken.Token
 	expire := LocalToken.ExpireAt
 	LocalToken.Mu.RUnlock()
-	// token不为空，且有效时间大于30秒，直接返回缓存token
-	if t != "" && expire.After(time.Now().Add(30*time.Second)) {
-		return t, nil
+	// token already exists
+	if t != "" {
+		if expire.Sub(time.Now())<=0{
+			// token is expired
+			_, err := GetTokenAPI()
+			if err != nil {
+				return "", err
+			}
+		}else if expire.Sub(time.Now())>0 && expire.Sub(time.Now())<=30*time.Second {
+			// token will expire after 30s
+			_, err := DoRefreshToken()
+			if err != nil {
+				return "", err
+			}
+		}else{
+			return t, nil
+		}
 	}
+
 	tylog.SugarLog.Info("without token, the token will be pulled again")
-	if t == "" || LocalToken.RefreshToken == "" {
-		_, err := GetTokenAPI()
-		if err != nil {
-			return "", err
-		}
-	} else { // 小于30s就刷新下
-		// token不为空，调用RefreshTokenAPI刷新token
-		_, err := DoRefreshToken()
-		if err != nil {
-			return "", err
-		}
+	_, err := GetTokenAPI()
+	if err != nil {
+		return "", err
 	}
 
 	LocalToken.Mu.RLock()
