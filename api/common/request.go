@@ -84,8 +84,25 @@ func DoRequest(req *http.Request, resp interface{}) error {
 		tylog.SugarLog.Errorf("do request failed err:%v,req:%v,resp:%v\n", err, req, string(bs))
 		return err
 	}
+	handlerError(bs)
 	tylog.SugarLog.Infof("req:%v,resp:%+v\n", req, resp)
 	return nil
+}
+
+type ErrorInfo struct {
+	// error info
+	Code int    `json:"code"`
+	Msg  string `json:"msg"`
+}
+
+const TokenInvalid int = 1010
+
+func handlerError(bs []byte) {
+	e := ErrorInfo{}
+	json.Unmarshal(bs, &e)
+	if e.Code == TokenInvalid {
+		GetTokenAPI()
+	}
 }
 
 func NewHTTPRequest(a APIRequest) (*http.Request, error) {
