@@ -30,9 +30,9 @@ func GetRemoteKeys(infraredID string, remoteID string) (*GetRemoteKeysResponse, 
 type GetRemoteKeysResponse struct {
 	Success bool `json:"success"`
 	Result  struct {
-		CategoryID     string `json:"category_id"`
-		BrandID        string `json:"brand_id"`
-		RemoteIndex    string `json:"remote_index"`
+		CategoryID     int `json:"category_id"`
+		BrandID        int `json:"brand_id"`
+		RemoteIndex    int `json:"remote_index"`
 		SingleAir      bool   `json:"single_air"`
 		DuplicatePower bool   `json:"duplicate_power"`
 		KeyList        []struct {
