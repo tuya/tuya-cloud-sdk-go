@@ -65,9 +65,9 @@ type GetDeviceLogsResponse struct {
 		Logs []struct {
 			Code      string `json:"code"`
 			Value     string `json:"value"`
-			EventTime string `json:"event_time"`
+			EventTime int64  `json:"event_time"`
 			EventFrom string `json:"event_from"`
-			EventID   string `json:"event_id"`
+			EventID   int64  `json:"event_id"`
 			Status    string `json:"status"`
 			Row       string `json:"row"`
 		} `json:"logs"`
