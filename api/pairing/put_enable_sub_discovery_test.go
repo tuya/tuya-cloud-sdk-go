@@ -6,17 +6,15 @@ import (
 	"github.com/tuya/tuya-cloud-sdk-go/api/common"
 )
 
-func TestPairingToken(t *testing.T) {
-	reqInfo := &PostPairingTokenReq{
-		PairingType: "EZ",
-		UID:         common.Ed.TestDataUID,
-		TimeZoneId:  "Asia/Shanghai",
-		HomeID:      "",
+func TestEnableSubDiscovery(t *testing.T) {
+	reqInfo := &EnableSubDiscoveryReq{
+		DeviceId: common.Ed.TestDataDeviceID,
+		Duration: 10,
 	}
 	tests := []struct {
 		name    string
-		reqInfo *PostPairingTokenReq
-		want    *PostPairingTokenResponse
+		reqInfo *EnableSubDiscoveryReq
+		want    *EnableSubDiscoveryResponse
 		wantErr bool
 	}{
 		{
@@ -26,12 +24,9 @@ func TestPairingToken(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := PostPairingToken(
-				tt.reqInfo.PairingType,
-				tt.reqInfo.UID,
-				tt.reqInfo.TimeZoneId,
-				tt.reqInfo.HomeID,
-				"",
+			got, err := EnableSubDiscovery(
+				tt.reqInfo.DeviceId,
+				tt.reqInfo.Duration,
 			)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("SignUp() error = %v, wantErr %v", err, tt.wantErr)
