@@ -24,8 +24,7 @@ func GetTokenAPI() (*GetTokenAPIResponse, error) {
 	}
 
 	timestamp := GetTimestamp()
-	sign := GetEasySign(timestamp)
-	AddEasyHeader(req, sign, timestamp)
+	AddEasyHeader(req, timestamp)
 
 	resp := &GetTokenAPIResponse{}
 	err = DoRequest(req, resp)
