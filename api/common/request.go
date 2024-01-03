@@ -20,7 +20,6 @@ func DoAPIRequest(a APIRequest, resp interface{}) error {
 
 	uri := strings.Join([]string{config.HOST, a.API()}, "")
 	timestamp := GetTimestamp()
-	sign := GetBizSign(token, timestamp)
 	var req *http.Request
 	pr, ok := a.(RequestBody)
 	if ok {
@@ -32,37 +31,40 @@ func DoAPIRequest(a APIRequest, resp interface{}) error {
 		return err
 	}
 	if a.Method() != "GET" {
-		AddBodyBizHeader(req, token, sign, timestamp)
+		AddBodyBizHeader(req, token, timestamp)
 	} else {
-		AddBizHeader(req, token, sign, timestamp)
+		AddBizHeader(req, token, timestamp)
 	}
 
 	err = DoRequest(req, resp)
 	return err
 }
 
-func AddEasyHeader(req *http.Request, sign, timestamp string) {
+func AddEasyHeader(req *http.Request, timestamp string) {
 	req.Header.Add("client_id", config.AccessID)
-	req.Header.Add("sign", sign)
 	req.Header.Add("sign_method", "HMAC-SHA256")
 	req.Header.Add("t", timestamp)
+	sign := GetEasySignV2(req)
+	req.Header.Set("sign", sign)
 }
 
-func AddBizHeader(req *http.Request, token, sign, timestamp string) {
+func AddBizHeader(req *http.Request, token, timestamp string) {
 	req.Header.Add("client_id", config.AccessID)
 	req.Header.Add("access_token", token)
-	req.Header.Add("sign", sign)
 	req.Header.Add("sign_method", "HMAC-SHA256")
 	req.Header.Add("t", timestamp)
+	sign := GetBizSignV2(req, token)
+	req.Header.Set("sign", sign)
 }
 
-func AddBodyBizHeader(req *http.Request, token, sign, timestamp string) {
+func AddBodyBizHeader(req *http.Request, token, timestamp string) {
 	req.Header.Add("client_id", config.AccessID)
 	req.Header.Add("access_token", token)
-	req.Header.Add("sign", sign)
 	req.Header.Add("sign_method", "HMAC-SHA256")
 	req.Header.Add("t", timestamp)
 	req.Header.Add("Content-Type", "application/json")
+	sign := GetBizSignV2(req, token)
+	req.Header.Set("sign", sign)
 }
 
 func DoRequest(req *http.Request, resp interface{}) error {

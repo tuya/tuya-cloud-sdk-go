@@ -34,8 +34,7 @@ func DoRefreshToken() (*RefreshTokenResponse, error) {
 		return nil, err
 	}
 	timestamp := GetTimestamp()
-	sign := GetEasySign(timestamp)
-	AddEasyHeader(req, sign, timestamp)
+	AddEasyHeader(req, timestamp)
 
 	resp := &RefreshTokenResponse{}
 	err = DoRequest(req, resp)
